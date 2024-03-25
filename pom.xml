@@ -8,14 +8,73 @@
   <name>snapSpring Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+      <!-- Junit测试 -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
+      <!-- MyBatis核心Jar包 -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>3.4.6</version>
+      </dependency>
+      <!-- MySql驱动 -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.29</version> <!-- 请根据实际情况选择合适的版本 -->
+      </dependency>
+      <!-- Lombok工具 -->
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.12</version>
+          <scope>provided</scope>
+      </dependency>
+      <!-- Spring核心 -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>5.3.3</version>
+      </dependency>
+      <!-- Spring-test测试 -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>5.3.3</version>
+          <scope>test</scope>
+      </dependency>
+      <!-- slf4j日志包 -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.7.25</version>
+      </dependency>
+      <!-- druid阿里的数据库连接池 -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>1.1.10</version>
+      </dependency>
+      <!-- Spring整合ORM -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-orm</artifactId>
+          <version>5.3.3</version>
+      </dependency>
+      <!-- Spring整合MyBatis -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>1.3.2</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>snapSpring</finalName>
   </build>
 </project>
+
+

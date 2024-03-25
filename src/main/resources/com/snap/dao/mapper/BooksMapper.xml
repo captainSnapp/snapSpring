@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snap.dao.mapper.BooksMapper">
+
+    <resultMap id="bookFindAll" type="com.snap.dao.pojo.Books">
+        <id column="bookID" property="bookID"></id>
+        <result property="bookTypeID" column="bookTypeID"></result>
+        <result property="bookName" column="bookName"></result>
+        <result property="bookPrice" column="bookPrice"></result>
+        <result property="bookNumber" column="bookNumber"></result>
+        <result property="bookDesc" column="bookDesc"></result>
+        <association property="bookType" javaType="com.snap.dao.pojo.BookType">
+            <id column="typeID" property="typeID"></id>
+            <result column="typeName" property="typeName"></result>
+            <result column="typeDesc" property="typeDesc"></result>
+        </association>
+    </resultMap>
+
+    <select id="select" resultMap="bookFindAll">
+        select bookID, bookTypeID, bookName, bookPrice, bookNumber, bookDesc,typeID,typeDesc,typeName
+        from books inner join booktype on typeID=bookTypeID
+        where
+        <if test="bookName!='' and bookName!=null">
+            bookName like concat('%',#{bookName},'%') and
+        </if>
+        <if test="bookNumber!='' and bookNumber!=null">
+            bookNumber = #{bookNumber} and
+        </if>
+        1=1
+    </select>
+
+    <update id="update">
+        update books
+        set bookTypeID=#{bookTypeID},
+            bookName=#{bookName},
+            bookPrice=#{bookPrice},
+            bookNumber=#{bookNumber},
+            bookDesc=#{bookDesc}
+        where bookID = #{bookID}
+    </update>
+
+    <delete id="delete">
+        delete
+        from books
+        where bookID = #{bookID};
+    </delete>
+
+</mapper>
